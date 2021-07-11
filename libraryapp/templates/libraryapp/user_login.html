@@ -1,0 +1,67 @@
+{% extends "libraryapp/base.html" %}
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<style type="text/css">
+		ul li{
+			list-style: none;
+			display: inline;
+		}
+		.error{
+			color: red;
+		}
+	</style>
+	
+</head>
+<body>
+	{% block content %}
+	<!-- <style>
+		table
+		{
+			background-color: white;
+			border: 8px solid black;
+			border-radius: 25px
+		}
+	</style> -->
+	<div class="container">
+		<div class="col-md-8 col-md-offset-2">
+			<h3>Login</h3>
+			<hr>
+			
+			<!-- <form method="POST" action="login" enctype="multipart/form-data"> -->
+			<form action="{% url 'libraryapp:user_login' %}" method='post' enctype="multipart/form-data">
+				<div align="center">
+				
+				{% csrf_token %}
+				<table width="70%" border="3" cellspacing="10">
+					<div align="center">
+
+						<td>Username</td>
+						<td>{{data.Username}}</td>
+						<td class="error">{{data.Username.errors}}</td>
+					</tr>
+					<tr>
+						<td>Password</td>
+						<td>{{data.Password}}</td>
+						<td class="error">{{data.Password.errors}}</td>
+					</tr>
+					<tr>
+						<td colspan="3"><input type="submit" name="submit" value="Login" class="btn btn-success"></td>
+					</tr>
+				</table>
+
+			</div>
+			</form>
+		</div>
+	</div>
+	{% endblock %}
+</body>
+</html>

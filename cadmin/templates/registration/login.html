@@ -1,0 +1,11 @@
+{% block title %}
+login here
+{% endblock %}
+{% block content %}
+
+	<form  action="{% url 'cadmin:login_url' %}" method='POST' enctype="multipart/form-data">
+	{% csrf_token %}
+	{{form.as_p}}
+	<button type="submit" class="btn btn-succes">login</button>
+	
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends "cadmin/base1.html" %}
+{% load static %}
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BookProfile</title>
+	<h1> BOOK PROFILE</h1>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<style type="text/css">
+		ul li{
+			list-style: none;
+			display: inline;
+		}
+		.error{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	
+	{% block content %}
+	
+	<div class="container">
+		<div class="col-md-8 col-md-offset-2">
+			<h3>BookProfile</h3>
+			<hr>
+			
+			
+            <form action="{% url 'cadmin:books' %}" method="post" enctype="multipart/form-data">
+
+
+			{% csrf_token %}
+			<center>
+				<h>BookProfile</h>
+			<table>
+				<table class="table table-borderless">
+
+					<tr>
+						<td>
+							{{ data.as_table }}
+						</td>
+					</tr>
+					<tr>
+						<td colspan="3"></td>
+					</tr>
+				</table>
+				<input type="submit" name="submit" value="Save" class="btn btn-success">
+			</center>
+			</form>
+		</div>
+	</div>
+	<a href="{{ request.META.HTTP_REFERER }}"class="btn btn-primary"class>Back</a>
+	{% endblock %}
+
+</body>
+	
+
+</html>

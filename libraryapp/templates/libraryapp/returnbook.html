@@ -1,0 +1,168 @@
+
+
+
+{% extends "libraryapp/base2.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Profile</title>
+	<h1> ReturnbookForm</h1>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<style type="text/css">
+		ul li{
+			list-style: none;
+			display: inline;
+		}
+		.error{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	
+	{% block content %}
+	<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>document</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+	
+	<div class="container">
+		<div class="col-md-8 col-md-offset-2">
+			<h3>ReturnbookRegistration</h3>
+			<hr>
+
+			
+            <form action="{% url 'libraryapp:returnbook' %}"method="post" enctype="multipart/form-data">
+            	<div align="center">
+            
+			{% csrf_token %}
+			
+			<table>
+				<table class="table table-borderless">
+					<tr>
+						<td>
+							{{ data.as_table }}
+						</td>
+					</tr>
+					<tr>
+						<td colspan="3"></td>
+					</tr>
+				</table>
+				<a href="{% url 'libraryapp:renew' %}">RENEW</a>
+				<a href="{{ request.META.HTTP_REFERER }}"class="btn btn-primary"class>Back</a>
+				<input type="submit" name="submit" value="Save" class="btn btn-success">
+				
+				
+
+			</center>
+			</form>
+
+		</table>
+		</div>
+	</div>
+	<body>
+	<h2></h2>
+	<table>
+<tr>
+<td> <input type="text" name="a" id="first" placeholder="Enter available days"> </td>
+</tr>
+<tr>
+<td> <input type="text" name="b" id="second" placeholder="Enter total usage"> </td>
+</tr>
+<tr>
+<td> <button onclick="add ( )">Submit</button> </td>
+</tr>
+</table>
+<!-- <div id="add"></div> -->
+<div id="sub"></div>
+
+
+	 
+	<div class="container-fluid">
+		<div class="container">
+			<div class="part1">
+				 
+
+				<fieldset>
+					<legend></legend>
+					enter your name:<input type="text" id="name">
+					
+				</fieldset>
+			</div>
+			<div class="part2">
+				<fieldset>
+					<legend></legend>
+					extradays (rs.10 per after duedate):<input type="text" id="extradays"><br/>
+					
+				</fieldset>
+				</div>
+			</div>
+		</div class="container">
+		<table border="1">
+		<fieldset>
+			
+			<legend></legend>
+			<h3>name:<span id="name2"></h3>
+			
+			
+			<table border="1">
+				<thead>
+					<th>Fine</th><th>Extra days</th><th>Amount</th></tr>
+				
+				</thead>
+				<tbody id="Billstatement">
+				</tbody>
+				</tbody>
+			</table>
+		</fieldset> 
+		<!-- <h1>totalamount=rs.10</h1> -->
+	</div>
+	<script>
+		
+		var fine=10,kachori_price=12,vadapavu_price=60,maggi_price=50;
+		var samosa_q=0;
+		document.getElementById("name").addEventListener("keyup",function(){
+			// name=this.value;
+		document.getElementById("name2").innerHTML=this.value;
+		
+		});
+		
+		document.getElementById("extradays").addEventListener("keyup",function(){
+			if(this.value==""||this.value==0){
+				document.getElementById("Billstatement").innerHTML="";
+			
+			}else{
+				samosa_q=this.value
+				document.getElementById("Billstatement").innerHTML="<tr><td>Rs."+fine+"</td><td>"+samosa_q+"</td><td>"+fine+"x"+samosa_q+"="+fine*samosa_q+"</td></tr>";
+			}
+		});
+		
+function add( )
+{
+var a,b,Sub;
+a = parseInt(document.getElementById ("first").value);
+b = parseInt(document.getElementById ("second").value);
+ //Add two numbers
+Sub = b-a; //Subtraction of two numbers
+//To print the result
+
+document.getElementById ("sub").innerHTML ="total days for your usage : "+Sub;
+}
+</script>
+	</script>
+</div>
+</body>
+	{% endblock %}
+
+</body>
+	
+
+</html>

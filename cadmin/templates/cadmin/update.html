@@ -1,0 +1,116 @@
+{% extends "cadmin/base1.html" %}
+{% load static %}
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+
+<body>
+	{% block content %}
+	
+	<h4 class="text-center alert alert-info">show information</h4>
+		<form  action="{% url 'cadmin:update' %}" method='POST' enctype="multipart/form-data">
+			{% csrf_token %}
+
+		<a href="{{ request.META.HTTP_REFERER }}"class="btn btn-primary"class>Back</a>
+		<table>
+				{% if form %}
+				
+				<table class="table table-bordered">
+
+					
+			
+		
+					<thead>
+						<tr>
+							<!-- <th scope="col"></th> -->
+							
+							<th scope="col">Title</th>
+							<th scope="col">Bookstock</th>
+							
+							<th scope="col">Author</th>
+							<th scope="col">Publications</th>
+							<th scope="col">Price</th>
+							<th scope="col">Edition</th>
+							<th scope="col">Dateofpublications</th>
+							<th scope="col">action</th>
+
+
+							
+						</tr>
+					</thead>
+					<tbody>
+						{% for st in stu %}
+						
+						<tr>
+							
+							
+							<th scope="row">{{st.Title}}</th>
+							
+							
+							<td>{{st.Bookstock}}</td>
+							<td>{{st.Author}}</td>
+							<td>{{st.Publications}}</td>
+							<td>{{st.Price}}</td>
+							<td>{{st.Edition}}</td>
+							<td>{{st.Dateofpublications}}</td>
+							<td>
+								<a href="{% url 'cadmin:EditBook' st.id %}">Edit</a>
+								<!-- <a href="#" class="btn btn-warning btn-sm">Edit</a> -->
+								<form action="{% url 'cadmin:delete_data' st.id %}" method="post" class="d-inline">
+									{% csrf_token %}
+									<input type="submit"  class="btn-btn-danger"value="Delete">
+								
+								</form>
+								<!-- <a href="#" class="btn btn-danger btn-sm">Delete</a> -->
+							</td>
+						<!-- <tr>
+							<td><input class="btn btn-success" type="submit" name="submit" value="DELETE"></td>
+							<td><input class="btn btn-success" type="submit" name="submit" value="update_data"></td>
+
+							
+						</tr> -->
+
+						</tr>
+
+						{% endfor %}
+						
+					</tbody>
+				</table>
+
+
+				{% else %}
+
+						<tr>
+							<th scope="row">2</th>
+							<td>error</td>
+							
+						</tr>
+						<tr>
+							<th scope="row">3</th>
+							<td colspan="2">invalid choice</td>
+							
+						</tr>
+					</tbody>
+					
+				</table>
+
+
+			
+			{% endif %}
+		</table>
+             
+			
+           
+
+	</form>
+			
+	</div>
+	{% endblock %}
+
+ </body>
+</html> 

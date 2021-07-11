@@ -1,0 +1,22 @@
+{% extends "libapp/base.html" %}
+
+{% load static %}
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	{% block content %}
+	
+		<div class ="section-inner clearfix">
+			<form  action="{% url 'cadmin:Logout'  %}" method='POST' enctype="multipart/form-data">
+			{% csrf_token %}
+
+		<!-- <p> you have been logged out click <a href="{% url registration:login' %}">here</a> to login again</p> -->
+		<!-- <a href="{% url 'django.contrib.auth.views.logout' %}next=/">logout
+		</a> -->
+			</div>
+	</div>
+</body>
+	{% endblock %}
+</html>

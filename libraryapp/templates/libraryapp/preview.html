@@ -1,0 +1,142 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--
+
+Template 2092 Shelf
+
+http://www.tooplate.com/view/2092-shelf
+
+-->
+    <title>SHELF - Your Online Library</title>
+
+    <!-- load stylesheets -->
+    <link rel="stylesheet" href="{% static 'https://fonts.googleapis.com/css?family=Open+Sans:300,400' %}">  <!-- Google web font "Open Sans" -->
+    <link rel="stylesheet" href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}">                <!-- Font Awesome -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">                                      <!-- Bootstrap style -->
+    <link rel="stylesheet" href="{% static 'css/tooplate-style.css' %}">                                   <!-- Templatemo style -->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+          <![endif]-->
+</head>
+
+    <body>
+        
+        <div class="container">
+            <header class="tm-site-header">
+                <h1 class="tm-site-name">Visvesvaraya</h1>
+                <p class="tm-site-description">Your Online  SCIENCE-LIBRARY</p>
+                <!-- <img src="{% static 'img/library.JPG' %}" style="width:1000px;height:300px"> -->
+
+                
+                <nav class="navbar navbar-expand-md tm-main-nav-container">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#tmMainNav" aria-controls="tmMainNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <i class="fa fa-bars"></i>
+                    </button>
+
+                    <div class="collapse navbar-collapse tm-main-nav" id="tmMainNav">
+                        <ul class="nav nav-fill tm-main-nav-ul">
+                            <li class="nav-item"><a class="nav-link active" href="{% url 'libraryapp:register' %}"> Registration</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'libraryapp:user_login' %}">Login</a></li>
+                            
+                            <li class="nav-item"><a class="nav-link" href="{% url 'libraryapp:returnbook' %}">Returnbook</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'libraryapp:user_login' %}">Logout</a></li>
+                            
+                        </ul>
+                    </div>
+                </nav>
+                
+            </header>
+            
+            <div class="tm-main-content no-pad-b">
+                    
+                <section class="row tm-item-preview">
+                    <div class="col-md-6 col-sm-12 mb-md-0 mb-5">
+                        <img src="{% static 'img/pic.jpg' %}" alt="Image" class="img-fluid tm-img-center-sm">
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <h2 class="tm-blue-text tm-margin-b-p">Sir MV RESEARCH LIBRARY</h2>
+                        <p class="tm-margin-b-p">The Visvesvaraya library established in the memory of great indian Engineer Sir MV(1861-1965).Visvesvaraya was knighted as a Knight Commander of the Order of the Indian Empire (KCIE) by the British for his contributions to the public good. After India attained independence, he was awarded the nation's highest honour, the Bharat Ratna, in 1955 an honorary membership of London Institution of Civil Engineers.</p>
+                        <p class="tm-margin-b-p">Library established a network of creative units with in its complex wherein both the expert and the youthful novice have ample opertunity to develap their skills and enrich their knowledge.</p>
+                        <p class="tm-margin-b-p">The library has about 30000 books on various subject like Electronics,Electrical,Computer,Civil,Mechanical,Biomedicalengineering etc...</p>
+                        <!-- <p class="tm-blue-text tm-margin-b-s">Categories: <a href="{% static '#' %}" class="tm-blue-text">New Story</a>, <a href="{% static '#' %}" class="tm-blue-text">Epic</a>, <a href="{% static '#' %}" class="tm-blue-text">Popular</a></p> -->
+                       <!--  <p class="tm-blue-text tm-margin-b-s">Views: 10,890</p>
+                        <p class="tm-blue-text tm-margin-b">Rating: <img src="{% static 'img/star.png' %}" alt="Star image"> <img src="{% static 'img/star.png' %}" alt="Star image"> <img src="{% static 'img/star.png' %}" alt="Star image"> <img src="{% static 'img/star.png' %}" alt="Star image"></p> -->
+                        <!-- <a href="{% static '#' %}" class="tm-btn tm-btn-gray tm-margin-r-20 tm-margin-b-s">Preview</a><a href="{% static '#' %}" class="tm-btn tm-btn-blue">Download</a> -->
+                    </div>
+                </section>
+
+                <div class="tm-gallery no-pad-b">
+                    <div class="row">
+                        <figure class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item mb-5">
+                            <!-- <a href="{% static 'preview.html' %}"> -->
+                                <div class="tm-gallery-item-overlay">
+                                    <img src="{% static 'img/bronfmanreading.jpg' %}"style="width:300px;height:300px"
+                  alt="Image" class="img-fluid tm-img-center">
+                                </div>
+                                <p class="tm-figcaption no-pad-b"></p>
+                            </a>
+                        </figure>
+                        <figure class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item mb-5">
+                            <!-- <a href="{% static 'preview.html' %}"> -->
+                                <div class="tm-gallery-item-overlay">
+                                    <img src="{% static 'img/shelfbook.jpg' %}"style="width:300px;height:300px" alt="Image" class="img-fluid tm-img-center">
+                                </div>
+                                <p class="tm-figcaption no-pad-b"></p>
+                            </a>
+                        </figure>
+                        <figure class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item mb-5">
+                            <!-- <a href="{% static 'preview.html' %}"> -->
+                                <div class="tm-gallery-item-overlay">
+                                    <img src="{% static 'img/cornell_new.jpg' %}" style="width:300px;height:300px"alt="Image" class="img-fluid tm-img-center">
+                                </div>
+                                <p class="tm-figcaption no-pad-b"></p>
+                            </a>
+                        </figure> 
+                        <figure class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item mb-5">
+                            <!-- <a href="{% static 'preview.html' %}"> -->
+                                <div class="tm-gallery-item-overlay">
+                                    <img src="{% static 'img/books-5584811_1280.jpg' %}" style="width:300px;height:300px"alt="Image" class="img-fluid tm-img-center">
+                                </div>
+                                <p class="tm-figcaption no-pad-b"></p>
+                            </a>
+                        </figure>
+                    </div>   
+                </div>                    
+                            
+            </div>
+            <a href="{{ request.META.HTTP_REFERER }}"class="btn btn-primary"class>Back</a>
+
+            <footer>
+                Copyright &copy; <span class="tm-current-year">2018</span> Shelf Company 
+                
+                - Designed by Tooplate
+            </footer>    
+        </div>
+        
+        <!-- load JS files -->
+        <script src="{% static 'js/jquery-1.11.3.min.js' %}"></script>         <!-- jQuery (https://jquery.com/download/) -->
+        <script src="{% static 'js/popper.min.js' %}"></script>                <!-- Popper (https://popper.js.org/) -->
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>             <!-- Bootstrap (https://getbootstrap.com/) -->
+        <script>     
+       
+            $(document).ready(function(){
+                
+                // Update the current year in copyright
+                $('.tm-current-year').text(new Date().getFullYear());
+
+            });
+
+        </script>             
+
+</body>
+</html>

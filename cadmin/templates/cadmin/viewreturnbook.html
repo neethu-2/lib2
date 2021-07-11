@@ -1,0 +1,101 @@
+{% extends "cadmin/base1.html" %}
+{% load static %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+
+<body>
+	{% block content %}
+	<div class="container">
+	<h4 class="text-center alert alert-info">Return Book information</h4>
+	
+		<form  action="{% url 'cadmin:viewreturnbook'  %}" method='POST' enctype="multipart/form-data">
+			{% csrf_token %}
+
+		
+		<table>
+				{% if stu %}
+				
+				<table class="table table-bordered">
+
+					
+			
+		
+					<thead>
+						<tr>
+							
+							
+							
+							<th scope="col">Regno</th>
+							<th scope="col">BookTitle</th>
+							
+							<th scope="col">Author</th>
+							<th scope="col">Returnstatus</th>
+							<th scope="col">Duedate</th>
+							<th scope="col">Returndate</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for st in stu %}
+						
+						<tr>
+							
+							<th scope="row">{{st.Regno}}</th>
+						
+							<td>{{st.Booktitle}}</td>
+							
+							
+							
+							<td>{{st.Author}}</td>
+							<td>{{st.Returnstatus}}</td>
+							<td>{{st.Duedate}}</td>
+							<td>{{st.Returndate}}</td>
+							<td>
+								<form action="{% url 'cadmin:delete_data2' st.id %}" method="post" class="d-inline">
+									{% csrf_token %}
+									<input type="submit"  class="btn-btn-danger"value="Delete">
+								</form></td>
+
+						</tr>
+
+						{% endfor %}
+					</tbody>
+				</table>
+
+				{% else %}
+
+						<tr>
+							<th scope="row">2</th>
+							<td>Jacob</td>
+							<td>Thornton</td>
+							<td>@fat</td>
+						</tr>
+						<tr>
+							<th scope="row">3</th>
+							<td colspan="2">Larry the Bird</td>
+							<td>@twitter</td>
+
+						</tr>
+					</tbody>
+					
+				</table>
+
+
+			
+			{% endif %}
+		</table>
+             
+			
+           
+
+	</form>
+	<a href="{{ request.META.HTTP_REFERER }}"class="btn btn-primary"class>Back</a>		
+	</div>
+	{% endblock %}
+
+ </body>
+</html> 

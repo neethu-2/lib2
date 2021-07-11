@@ -1,0 +1,39 @@
+{% extends "cadmin/base1.html" %}
+{% load static %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	
+</head>
+
+<body>
+	{% block content %}
+		<form action="{% url 'cadmin:EditBook' user.id %}" method='post' enctype="multipart/form-data" >
+			
+		{% csrf_token %}
+		
+		<table>
+				{% if data %}
+			
+				{{ data.as_table }}
+
+			<img style="height: 200px; width: 200px; float:right;" src="{{user.Photo.url}}">
+			<a href="{{ request.META.HTTP_REFERER }}"class="btn btn-primary"class>Back</a>
+				<tr>
+				<td><input class="btn btn-success" type="submit" name="submit" value="Update"></td>
+			</tr>
+			<tr>
+				<td><input class="btn btn-danger" type="submit" name="submit" value="Delete"></td>
+			</tr>	
+
+	
+			{% endif %}
+			</form>
+		</table>
+	</form>
+	{% endblock %}
+</body>
+</html>
+			

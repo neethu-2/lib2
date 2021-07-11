@@ -1,0 +1,47 @@
+
+{% extends "libraryapp/base2.html" %}
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	{% block content %}
+	<div>
+		<form  action="{% url 'libraryapp:Edit' user.id  %}" method="POST" enctype="multipart/form-data">
+			{% csrf_token %}
+            <center>
+            <table>
+
+		
+		    {{ form.as_table }}
+		<a href="{{ request.META.HTTP_REFERER }}"class="btn btn-primary"class>Back</a>
+		<img src="{{ user.Photo.url }}" style="width:200px;height:200px; float:right;">
+				
+        
+		
+		
+			<tr>
+				<td><input class="btn btn-success" type="submit" name="submit" value="Update"></td>
+			</tr>
+			<tr>
+				<td><input class="btn btn-danger" type="submit" name="submit" value="Delete"></td>
+			</tr>	
+              	
+             
+
+            </table>
+             
+			</center>
+			
+           
+
+		</form>
+			
+	</div>
+	{% endblock %}
+
+</body>
+</html>

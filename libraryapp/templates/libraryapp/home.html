@@ -1,0 +1,81 @@
+{% extends "libraryapp/base2.html" %}
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+
+	{% block title %} 
+
+
+		<h2>Home</h2>
+	{% endblock %}
+</head>
+
+<body>
+	{% block content %}
+	<a href="{{ request.META.HTTP_REFERER }}"class="btn btn-primary"class>Back</a>
+		<form action="{% url 'libraryapp:home' user.id %}" method='post' enctype="multipart/form-data">
+			<H2 align ="center">HI, {{user.Name }} WELCOME.... !</H2>
+
+			<div class="navbar">
+			<div class="btn-group-vertical">
+			<ul>
+				
+
+				
+				<div class="w3-bar w3-light-grey">
+				<li><a href="{% url 'libraryapp:changepassword' user.id %}">ChangePassword</a></li></div>
+				
+				<li><a href="{% url 'libraryapp:Edit' user.id %}">Edit</a></li>
+			
+				<li><a href="{% url 'libraryapp:choice' %}">Enteryourchoice</a></li>
+			
+				
+				<li><a href="{% url 'libraryapp:returnbook' %}">returnbook</a></li>
+			
+			
+				<li><a href="{% url 'libraryapp:issuebook' %}">Issuebooks</a></li>
+				<li><a href="{% url 'libraryapp:feedback' %}">Feedback</a></li>
+				<li><a href="{% url 'libraryapp:bill' %}">FinePayment</a></li>
+				<li><a href="/delete/{{ user.id }}">Delete</a></button></li>
+				</div>
+			</ul>
+		</div>
+
+			
+			{% csrf_token %}
+
+			
+			
+
+
+			
+			
+
+			{% if user %}
+				<img src="{{ user.Photo.url }}" style="width:200px;height:200px; float:right;">
+				
+				
+			{% endif %}
+			<H3 align ="right"> {{user.Email }} </H3>
+
+		</form>
+		<!-- <nav>
+		<ul>
+			
+		
+			
+		</div>	
+		</ul>
+		</nav> -->
+	
+
+	{% endblock %}	
+</body>
+</html>		
+
+
+
+
+

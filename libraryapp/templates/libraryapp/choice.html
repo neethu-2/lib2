@@ -1,0 +1,53 @@
+
+{% extends "libraryapp/base2.html" %}
+{% load static %}
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>selectablebook</title>
+	<h1> ENTER YOUR CHOICE BOOK</h1>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<style type="text/css">
+		ul li{
+			list-style: none;
+			display: inline;
+		}
+		.error{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	{% block content %}
+	<div class="container">
+		<div class="col-md-8 col-md-offset-2">
+			<h3>EnterYourChoiceBook</h3>
+			<hr>
+			<form method="POST" action="{% url 'libraryapp:choice' %}" novalidate>
+				<div align="center">
+				{% csrf_token %}
+				<!-- <table class="table table-borderless"> -->
+					<table>
+					<tr>
+						<td>
+							{{ data.as_table }}
+						</td>
+					</tr>
+					<a href="{{ request.META.HTTP_REFERER }}"class="btn btn-primary"class>Back</a>
+					<tr>
+						<td colspan="3"><input type="submit" name="submit" value="Save" class="btn btn-success"></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</div>
+	{% endblock%}
+</body>
+</html>
